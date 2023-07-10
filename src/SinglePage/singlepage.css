@@ -1,0 +1,51 @@
+.back {
+    position: absolute;
+    right: 8%;
+    top: -70px;
+  }
+  .single-page {
+    position: relative;
+  }
+  
+  .main-content p {
+    margin: 10px 0 20px 0;
+    color: grey;
+  }
+  .main-content .para p {
+    margin-right: 10px;
+  }
+  .main-content h1 {
+    font-size: 30px;
+  }
+  .main-content img {
+    width: 100%;
+    height: auto;
+  }
+  
+  article .box {
+    background-color: #31b675;
+    padding: 30px;
+    color: white;
+  }
+  article .box h2 {
+    font-size: 30px;
+    font-weight: 500;
+  }
+  
+  article p {
+    font-size: 14px;
+    line-height: 25px;
+  }
+  article .box2 p {
+    text-align: center;
+    position: relative;
+    z-index: 2;
+    font-size: 14px;
+    line-height: 25px;
+    color: white;
+  }
+  @media screen and (max-width: 768px) {
+    .single-page .flex {
+      flex-direction: column;
+    }
+  }
