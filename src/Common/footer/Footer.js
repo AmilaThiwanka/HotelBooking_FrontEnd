@@ -59,19 +59,19 @@ const Footer = () => {
             <h2>RECENT POSTS</h2>
             <ul>
               <li>
-                <p>Lorem ipsum dolor sit amet sectetur adipiscing elit amet</p>
+                <p>Looking for a meeting venue?</p>
                 <label className='fa fa-calendar-alt'></label>
-                <span>01 Oct 2020</span>
+                <span>Date</span>
               </li>
               <li>
-                <p>Lorem ipsum dolor sit amet sectetur adipiscing elit amet</p>
+                <p>The margarita nails four of those five: the salty rim of the glass, the sweetness of the agave, the bitterness of the tequila, and the sourness of the limes.</p>
                 <label className='fa fa-calendar-alt'></label>
-                <span>01 Oct 2020</span>
+                <span>Date</span>
               </li>
               <li>
-                <p>Lorem ipsum dolor sit amet sectetur adipiscing elit amet</p>
+                <p>mazing Food Experience with Special Pot Menu for 2</p>
                 <label className='fa fa-calendar-alt'></label>
-                <span>01 Oct 2020</span>
+                <span>Date</span>
               </li>
             </ul>
           </div>

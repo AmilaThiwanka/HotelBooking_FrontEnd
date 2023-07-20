@@ -38,7 +38,7 @@ const Navbar = () => {
             </li>
             <li>
               <Link to='/blog' onClick={closeMobileMenu}>
-                Rooms & Blog
+                Room & Blog
               </Link>
             </li>
             <li>
