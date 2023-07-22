@@ -1,0 +1,7 @@
+{"web":{"client_id":"531159811579-68jb3355bqm9mpuov8hkefvt97s5r9mn.apps.googleusercontent.com",
+"project_id":"saru-blue-saphire-hotel",
+"auth_uri":"https://accounts.google.com/o/oauth2/auth",
+"token_uri":"https://oauth2.googleapis.com/token",
+"auth_provider_x509_cert_url":"https://www.googleapis.com/oauth2/v1/certs",
+"client_secret":"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",
+"redirect_uris":["http://localhost:8090/auth/google/callback"]}}
