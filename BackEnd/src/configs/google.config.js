@@ -1,6 +1,7 @@
 import GoogleStrategy from "passport-google-oauth20";
 import config from ".";
-import logger from "../Utils/logger";
+import user from "../api/models/user.model";
+
 
 const googleAuth =(passport) =>{
     GoogleStrategy.Strategy;
@@ -9,9 +10,27 @@ const googleAuth =(passport) =>{
         clientID: config.GOOGLE_CLIENT_ID,
         clientSecret: config.GOOGLE_CLIENT_SECRET,
         callbackURL: config.GOOGLE_REDIRECT_URL
-    }, (accessToekn, refreshToken, profile, callback)=>{
-        console.log(profile);
-        return callback(null, profile);
+    }, async(accessToekn, refreshToken, profile, callback)=>{
+        const userObject ={
+            googleID : profile.id,
+            displayName: profile.displayName,
+            email: profile.emails[0].value,
+            image: profile.photos[0].value,
+            firatName: profile.name.givenName,
+            lastName:profile.name.familyName
+        };
+        let user = await user.findOne({googleID:profile.id});
+        if(user)
+        {
+            return callback(null,user);
+        }
+        user.create(userObject)
+        .then((user)=>{
+            return callback(null, user);
+        })
+        .catch((err)=>{
+            return callback(err.message);
+        });
     })
     );
     passport.serializeUser((user, callback)=> {
@@ -19,7 +38,9 @@ const googleAuth =(passport) =>{
       });
       
       passport.deserializeUser((id, callback)=> {
-       callback(null,id);
+       user.findById(id, (err,user) =>{
+            callback(err, user);
+       });
       });
 };
 export {googleAuth};
