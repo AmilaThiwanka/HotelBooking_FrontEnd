@@ -1,8 +1,11 @@
 import React, { useState } from "react"
 import Data from "./Data"
+import SearchResults from "../SearchResults/SearchResults"
 
 const Home = ({ slides }) => {
   const [current, setCurrent] = useState(0)
+  const [room_name, setRoomName] = useState("")
+  const [searchResults, setSearchResults] = useState([]);
   const length = slides.length
 
   const nextSlide = () => {
@@ -11,6 +14,35 @@ const Home = ({ slides }) => {
 
   const prevSlide = () => {
     setCurrent(current === 0 ? length - 1 : current - 1)
+  }
+
+  const onSearch = async (e) =>{
+      e.preventDefault();
+      if(room_name === ""){
+        return;
+      }
+
+      try {
+        const response = await fetch('http://localhost:8000/search_rooms', {
+            method: 'POST',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify({room_name}),
+        });
+
+        if (!response.ok) {
+            return;
+        }
+
+        const responseBody = await response.json();
+
+        console.log(responseBody);
+    
+        setSearchResults(responseBody);
+
+
+    } catch (err) {
+        alert(err.message)
+    }
   }
 
   if (!Array.isArray(slides) || slides.length <= 0) {
@@ -43,8 +75,8 @@ const Home = ({ slides }) => {
           <h2>Enjoy Your Holiday</h2>
           <span> Search and Book Hotel</span>
 
-          <form>
-            <input type='text' placeholder='Seacrh Room' />
+          <form onSubmit={onSearch}>
+            <input type='text' placeholder='Seacrh Room' value={room_name} onChange={(e)=>{setRoomName(e.target.value)}}/>
             <div className='flex_space'>
               <input type='date' placeholder='Check In' />
               <input type='date' placeholder='Check Out' />
@@ -58,6 +90,13 @@ const Home = ({ slides }) => {
           </form>
         </div>
       </section>
+
+      {/* {searchResults.length !== 0 && ( */}
+        <section>
+          <SearchResults data={searchResults}></SearchResults>
+        </section>
+      {/* )} */}
+      
     </>
   )
 }

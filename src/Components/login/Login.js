@@ -2,21 +2,44 @@ import React, { useState } from "react"
 import { Link } from "react-router-dom"
 import HeadTitle from "../../Common/HeadTitle/HeadTitle"
 import "./design.css"
-
+import { useHistory } from "react-router-dom";
 const Login = () => {
+
+  const history = useHistory();
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
 
   const [recValue, setRecValue] = useState([])
-  const submitForm = (e) => {
-    e.preventDefault()
-    const newValue = { email: email, password: password }
+  const submitForm = async (e) => {
+    e.preventDefault();
 
-    setRecValue([...recValue, newValue])
-    console.log(newValue)
+        if (email.length === 0 || password.length === 0) {
+            alert("Invalid user data.")
+            return;
+        }
 
-    setEmail("")
-    setPassword("")
+        try {
+            const response = await fetch('http://localhost:8000/login', {
+                method: 'POST',
+                headers: {'Content-Type': 'application/json'},
+                body: JSON.stringify({email, password}),
+            });
+
+            if (!response.ok) {
+                alert("Invalid credentials.")
+                return;
+            }
+
+            alert("User successfully logged in")
+            setPassword("");
+            setEmail("");
+
+            history.push('/')
+
+
+        } catch (err) {
+            alert(err.message)
+        }
   }
   return (
     <>
@@ -48,24 +71,6 @@ const Login = () => {
             </form>
           </div>
         </div>
-      </section>
-
-      <section className='show-data'>
-        {recValue.map((cureentValue) => {
-          return (
-            <>
-              <div className='sign-box'>
-                <h1>Sign-In Successfully</h1>
-                <h3>
-                  Email : <p>{cureentValue.email}</p>
-                </h3>
-                <h3>
-                  Password : <p>{cureentValue.password}</p>
-                </h3>
-              </div>
-            </>
-          )
-        })}
       </section>
     </>
   )

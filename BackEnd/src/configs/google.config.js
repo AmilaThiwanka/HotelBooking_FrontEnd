@@ -1,6 +1,6 @@
 import GoogleStrategy from "passport-google-oauth20";
 import config from ".";
-import user from "../api/models/user.model";
+import user from "../api/models/user";
 
 
 const googleAuth =(passport) =>{

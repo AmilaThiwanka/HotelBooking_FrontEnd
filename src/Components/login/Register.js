@@ -1,25 +1,47 @@
 import React, { useState } from "react"
 import HeadTitle from "../../Common/HeadTitle/HeadTitle"
 import "./design.css"
+import { useHistory } from "react-router-dom";
 
 const Register = () => {
+  const history = useHistory();
   const [name, setName] = useState("")
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
   const [cpassword, setCpassword] = useState("")
 
   const [recValue, setRecValue] = useState([])
-  const submitForm = (e) => {
-    e.preventDefault()
-    const newValue = { name: name, email: email, password: password, cpassword: cpassword }
+  const submitForm = async (e) => {
+    e.preventDefault();
 
-    setRecValue([...recValue, newValue])
-    console.log(newValue)
+        if (name.length === 0 || email.length === 0 || password.length === 0) {
+            alert("Invalid user data.")
+            return;
+        }
 
-    setName("")
-    setEmail("")
-    setPassword("")
-    setCpassword("")
+        try {
+            const response = await fetch('http://localhost:8000/signup', {
+                method: 'PUT',
+                headers: {'Content-Type': 'application/json'},
+                body: JSON.stringify({name, email, password}),
+            });
+
+            if (!response.ok) {
+                alert("User already exists.")
+                return;
+            }
+
+            alert("user signed up")
+            setPassword("");
+            setName("");
+            setEmail("");
+            setCpassword("");
+            // setMessage('User signed up');
+        } catch (err) {
+            alert(err.message)
+        }
+
+        history.push('/sign-in')
   }
   return (
     <>
@@ -42,7 +64,7 @@ const Register = () => {
         </div>
       </section>
 
-      <section className='show-data'>
+      {/* <section className='show-data'>
         {recValue.map((cureentValue) => {
           return (
             <>
@@ -64,7 +86,7 @@ const Register = () => {
             </>
           )
         })}
-      </section>
+      </section> */}
     </>
   )
 }

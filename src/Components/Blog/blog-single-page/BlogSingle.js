@@ -9,12 +9,30 @@ const BlogSingle = () => {
   const { id } = useParams()
   const [item, setItem] = useState(null)
 
+  
+  // useEffect(() => {
+  //   let item = BlogData.find((item) => item.id === parseInt(id))
+  //   if (item) {
+  //     setItem(item)
+  //   }
+  // }, [id])
+
+  console.log(id)
+
   useEffect(() => {
-    let item = BlogData.find((item) => item.id === parseInt(id))
-    if (item) {
-      setItem(item)
-    }
-  }, [id])
+    const fetchData = async () => {
+      try {
+        const response = await fetch("http://localhost:8000/room/" + id);
+        const jsonData = await response.json();
+        setItem(jsonData);
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      }
+    };
+
+    fetchData();
+  }, []); 
+
   return (
     <>
       <HeadTitle />
@@ -30,15 +48,15 @@ const BlogSingle = () => {
 
             <article className='content flex_space'>
               <div className='main-content'>
-                <img src={item.cover} alt='' />
+                <img src={item.image} alt='' />
 
                 <div className='category flex_space'>
-                  <span>{item.date}</span>
-                  <label>{item.catgeory}</label>
+                  <span>{item.price}</span>
+                  <label>{item.name}</label>
                 </div>
 
-                <h1> {item.title} </h1>
-                <p>{item.desc}</p>
+                <h1> {item.type} </h1>
+                <p>{item.description}</p>
                 
 
                 
