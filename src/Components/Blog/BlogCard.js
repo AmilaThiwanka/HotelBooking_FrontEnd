@@ -1,25 +1,25 @@
 import React from "react"
 import { Link } from "react-router-dom"
 
-const BlogCard = ({ item: { id, cover, title, desc, para, catgeory, date } }) => {
+const BlogCard = ({ item: { _id, image, type, desc, description, name, price } }) => {
   return (
     <>
       <div className='items'>
         <div className='img'>
-          <img src={cover} alt='Gallery Image' />
+          <img src={image} alt='Gallery Image' />
         </div>
 
         <div className='category flex_space'>
-          <span>{date}</span>
-          <label>{catgeory}</label>
+          <span>{price}</span>
+          <label>{name}</label>
         </div>
 
         <div className='details'>
-          <h3>{title}</h3>
-          <p>{para}</p>
+          <h3>{type}</h3>
+          <p>{description.substring(0, 400)}</p>
         </div>
 
-        <Link to={`/blogsingle/${id}`} className='blogItem-link'>
+        <Link to={`/blogsingle/${_id}`} className='blogItem-link'>
           READ MORE <i className='fa fa-long-arrow-right'></i>
         </Link>
       </div>
