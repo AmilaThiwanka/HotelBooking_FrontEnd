@@ -18,6 +18,9 @@ import Contact from "./Components/Contact/Contact"
 import Footer from "./Common/footer/Footer"
 import Login from "./Components/login/Login"
 import Register from "./Components/login/Register"
+
+
+
 /*-------------blog------------ */
 
 function App() {
