@@ -3,13 +3,14 @@ import "../../Components/Blog/BlogHome.css"
 import BlogCard from "../../Components/Blog/BlogCard"
 
 const SearchResults = (props) => {
-  const [items, setIems] = useState(props.data)
+  const [items, setIems] = useState(props.data);
+
   return (
     <>
-      <section className='blog top'>
+      <section className='blog'>
         <div className='container'>
           <div className='content grid'>
-            {items.map((item) => {
+            {props.data.map((item) => {
               console.log(item._id)
               return <BlogCard key={item._id} item={item} />
             })}

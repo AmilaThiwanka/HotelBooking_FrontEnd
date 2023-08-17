@@ -91,11 +91,10 @@ const Home = ({ slides }) => {
         </div>
       </section>
 
-      {/* {searchResults.length !== 0 && ( */}
+
         <section>
           <SearchResults data={searchResults}></SearchResults>
         </section>
-      {/* )} */}
       
     </>
   )
