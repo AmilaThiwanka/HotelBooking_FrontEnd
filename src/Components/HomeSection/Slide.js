@@ -15,6 +15,8 @@ const Home = ({ slides }) => {
   const prevSlide = () => {
     setCurrent(current === 0 ? length - 1 : current - 1)
   }
+  const [petsAllowed, setPetsAllowed] = useState(false);
+
 
   const onSearch = async (e) =>{
       e.preventDefault();
@@ -60,6 +62,15 @@ const Home = ({ slides }) => {
             <i className='fas fa-caret-right'></i>
           </button>
         </div>
+{/* Adding the Pets Allowed Checkbox */}
+<label>
+  <input
+    type='checkbox'
+    checked={petsAllowed}
+    onChange={() => setPetsAllowed(!petsAllowed)}
+  />
+  Pets Allowed
+</label>
 
         {Data.map((slide, index) => {
           return (
@@ -76,7 +87,13 @@ const Home = ({ slides }) => {
           <span> Search and Book Hotel</span>
 
           <form onSubmit={onSearch}>
-            <input type='text' placeholder='Seacrh Room' value={room_name} onChange={(e)=>{setRoomName(e.target.value)}}/>
+            <select value={room_name} onChange={(e) => setRoomName(e.target.value)}>
+              <option value="">Select a Room</option>
+              <option value="standard">Standard Room</option>
+              <option value="deluxe">Deluxe Room</option>
+              <option value="suite">Suite</option>
+              {/* Add more options as needed */}
+            </select>
             <div className='flex_space'>
               <input type='date' placeholder='Check In' />
               <input type='date' placeholder='Check Out' />
@@ -86,7 +103,23 @@ const Home = ({ slides }) => {
               <input type='number' placeholder='Children(0- 17)' />
             </div>
             <input type='number' placeholder='No of Rooms' />
+            Pets Allowed
+            <label>
+              
+        <input
+        
+          type='checkbox'
+          placeholder='No of Rooms'
+          checked={petsAllowed}
+          onChange={() => setPetsAllowed(!petsAllowed)}
+        />
+       
+      </label>
             <input type='Submit' value='Search' className='submit' />
+                  {/* Adding the Pets Allowed Checkbox */}
+      
+
+            
           </form>
         </div>
       </section>

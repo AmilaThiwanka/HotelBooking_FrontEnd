@@ -42,7 +42,7 @@
     left: 10%;
     background-color: rgba(0, 0, 0, 0.7);
     width: 35%;
-    height: 65vh;
+    height: 90vh;
     border-radius: 5px;
     color: white;
   }
@@ -70,4 +70,7 @@
       width: 90%;
       height: 55vh;
     }
+  }
+  .slide-form {
+    margin-top: 20px;
   }
