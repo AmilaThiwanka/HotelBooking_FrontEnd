@@ -1,0 +1,35 @@
+{
+  "name": "wehkamp",
+  "version": "0.1.0",
+  "private": true,
+  "devDependencies": {
+    "autoprefixer": "*",
+    "csswring": "*",
+    "enzyme": "^2.9.1",
+    "grunt": "^1.0.1",
+    "grunt-contrib-clean": "^1.0.0",
+    "grunt-contrib-uglify": "*",
+    "grunt-contrib-watch": "*",
+    "grunt-csscomb": "^3.1.0",
+    "grunt-merge-media": "^0.4.0",
+    "grunt-postcss": "*",
+    "grunt-sass": "*",
+    "matchdep": "*",
+    "postcss-scss": "*",
+    "postcss-sorting": "^1.6.1",
+    "react-test-renderer": "^15.6.1"
+  },
+  "dependencies": {
+    "foundation-sites": "^6.3.0",
+    "spaceframework": "^0.3.1",
+    "react": "^15.6.1",
+    "react-dom": "^15.6.1",
+    "react-scripts": "1.0.11"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
+  }
+}
