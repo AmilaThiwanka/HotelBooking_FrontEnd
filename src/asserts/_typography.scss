@@ -1,0 +1,52 @@
+/* @source http: *smacss.com/book/type-base
+ *
+ * Base Rules for typography
+ * Declare once, site-wide styles
+ *
+ * A Base rule is applied to an element using an element selector, a
+ * descendent selector, or a child selector, along with any pseudo-classes.
+ * It doesn’t include any class or ID selectors. It is defining the default
+ * styling for how that element should look in all occurrences on the page.
+ *
+ * Typography styles for form elements should be done in forms.scss
+ */
+
+h1 {
+	@include line-height(small);
+	@include line-margin(0, 1);
+	@include font-size(xlarge);
+	@include font-weight(semibold);
+}
+
+h2 {
+	@include line-height(small);
+	@include line-margin(2, 1);
+	@include font-size(large);
+	@include font-weight(semibold);
+}
+
+h3 {
+	@include line-height();
+	@include line-margin(1, 0);
+	@include font-size();
+	@include font-weight(semibold);
+}
+
+p {
+	@include line-margin(1, 1);
+	@include line-height();
+
+	h3 + & {
+		@include line-margin(0, 1);
+	}
+}
+
+strong {
+	@include font-weight(semibold);
+}
+
+dl,
+ul,
+ol {
+	@include line-margin(1, 1);
+}

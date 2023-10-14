@@ -1,0 +1,12 @@
+.rating {
+	&__prefix {
+		position: relative;
+		top: -7px;
+
+		margin-right: 10px;
+	}
+
+	&__star {
+		cursor: pointer;
+	}
+}

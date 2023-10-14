@@ -1,0 +1,13 @@
+/*
+ * Font weight variables which are used in '@mixin font-weight'
+ *
+ * @description: A font-weight can be used by using: @include font-weight($value); were $value stands for the font-weight.
+ * @example: @include font-weight(regular); or
+ *           @include font-weight(bold);
+ */
+$font-weight: (
+	'light': 300,
+	'regular': 400,
+	'semibold': 600,
+	'bold': 700,
+);

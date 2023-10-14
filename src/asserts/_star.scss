@@ -1,0 +1,6 @@
+.star {
+	fill: $warning-color;
+	&[data-active='true'] ~ & {
+		fill: $light-gray;
+	}
+}

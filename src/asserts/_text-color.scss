@@ -1,0 +1,17 @@
+.text-color {
+	&-primary {
+		color: $primary-color;
+	}
+
+	&-secondary {
+		color: $secondary-color;
+	}
+
+	&-white {
+		color: $white;
+	}
+
+	&-medium-gray {
+		color: $medium-gray;
+	}
+}

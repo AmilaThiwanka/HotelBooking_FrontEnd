@@ -1,0 +1,12 @@
+html,
+body {
+	@include line-height();
+
+	-webkit-font-smoothing: antialiased;
+}
+
+*,
+*:after,
+*:before {
+	box-sizing: border-box;
+}

@@ -1,0 +1,67 @@
+/* @source http: *smacss.com/book/type-base
+ *
+ * Base Rules for forms
+ * Declare once, site-wide styles
+ *
+ * A Base rule is applied to an element using an element selector, a
+ * descendent selector, or a child selector, along with any pseudo-classes.
+ * It doesn’t include any class or ID selectors. It is defining the default
+ * styling for how that element should look in all occurrences on the page.
+ */
+
+fieldset {
+}
+
+legend {
+}
+
+label {
+	@include line-margin(1, 0);
+	@include font-weight(semibold);
+
+	display: block;
+
+	input[type=radio] + &,
+	input[type=checkbox] + & {
+		@include line-margin(0, 0);
+		@include font-weight(regular);
+	}
+}
+
+input[type=number],
+input[type=phone],
+input[type=email],
+input[type=password],
+input[type=text],
+input[type=tel],
+input[type=email],
+input[type=search],
+input[type=number],
+input[type=password],
+input[type=url] {
+	box-sizing: border-box;
+}
+
+input[type=search] {
+	box-sizing: border-box;
+}
+
+input,
+select,
+textarea {
+	@include line-margin(0, .5);
+
+	display: block;
+	width: 100%;
+	padding: $input-padding;
+
+	border: $input-border-width solid $input-border-color;
+	border-radius: $input-border-radius;
+	background-color: $white;
+
+	line-height: $input-line-height;
+}
+
+select:not([multiple=multiple]) {
+	height: $input-height;
+}

@@ -1,0 +1,10 @@
+/*
+ * Change the looks of an element on hover, focus & active
+ */
+@mixin hover {
+	&:hover,
+	&:focus,
+	&:active {
+		@content;
+	}
+}

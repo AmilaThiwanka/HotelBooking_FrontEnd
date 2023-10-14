@@ -1,0 +1,22 @@
+/* Gray color range */
+$gray-100: $black;
+$gray-90: lighten($black,10%);
+$gray-80: lighten($black,20%);
+$gray-70: lighten($black,30%);
+$gray-60: $dark-gray;
+$gray-50: lighten($black,50%);
+$gray-40: $medium-gray;
+$gray-30: lighten($black,70%);
+$gray-20: $light-gray;
+$gray-10: lighten($black,90%);
+$gray-0: $white;
+
+/*
+ * Social media colors
+ */
+$twitter-color: #4099ff;
+$instagram-color: #517fa4;
+$linkedin-color: #0073a1;
+$facebook-color: #3b5998;
+$youtube-color: #c21e24;
+$googleplus-color: #d95232;

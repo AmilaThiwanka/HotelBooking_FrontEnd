@@ -1,0 +1,62 @@
+/**
+ * Area Model
+ *
+ * @Description:
+ * Area Model is a multi purpose model. It's main goal is to reset margin of elements within it. Therefor having the
+ * '.area' class on elements containing textual content makes life much easier. Its removes for example the margin top
+ * on H1 elements and it removes the margin bottom on the last paragraph.
+ *
+ * As the name 'area' suggests, it is serving anything which has to do with area's. For this reason it can also
+ * be used to fill up area's with background colors, borders or even global transforming.
+ *
+ * Area Models works also great together with the space model. Since you can use space-margin-vertical on all elements
+ * instead of defining space-margin-bottom and space-margin-top on first and last element.
+ *
+ * Area Model delivers the following features:
+ * - Reset margins of the first and lasts child
+ * - Setting up global background color classes: &--bg-[color]
+ * - Setting up global border classes: &--border-[color]
+ * - Setting up global transforming classes: &--rotate or &--skew
+ *
+ * @Tutorial:
+ * Depending on the design you should add more modifiers to cover global backgrounds, borders and transforms
+ *
+ * @Author: Harwin Borger
+ *
+ **/
+
+.area {
+	> *:first-child {
+		margin-top: 0;
+	}
+
+	> *:last-child {
+		margin-bottom: 0;
+	}
+
+	//&-top {
+	//	> *:first-child {
+	//		margin-top: 0;
+	//	}
+	//}
+	//
+	//&-bottom {
+	//	> *:last-child {
+	//		margin-bottom: 0;
+	//	}
+	//}
+	//
+	//&-cascading {
+	//	> *:first-child {
+	//		> *:first-child {
+	//			margin-top: 0;
+	//		}
+	//	}
+	//
+	//	> *:last-child {
+	//		> *:last-child {
+	//			margin-bottom: 0;
+	//		}
+	//	}
+	//}
+}

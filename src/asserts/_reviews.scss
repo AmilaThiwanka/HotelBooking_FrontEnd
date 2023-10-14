@@ -1,0 +1,44 @@
+/*
+ * Container & List
+ */
+.reviews {
+	&__list {
+		margin: 0;
+	}
+
+	&__list-item {
+		border-top: 1px solid $light-gray;
+
+		&:last-child {
+			padding-bottom: 0;
+		}
+	}
+}
+
+/*
+ * Single review
+ */
+.review {
+	position: relative;
+
+	&__date {
+		@include font-size(xsmall);
+		@include line-height(small);
+
+		display: block;
+
+		color: $medium-gray;
+	}
+
+	&__rating {
+		position: absolute;
+		top: 0;
+		right: 0;
+	}
+
+	&__content {
+		@include line-margin(.5, 0);
+
+		white-space: pre-line;
+	}
+}

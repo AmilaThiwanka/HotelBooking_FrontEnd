@@ -1,0 +1,21 @@
+.bg {
+	&-white {
+		background-color: $white;
+	}
+
+	&-light-gray {
+		background-color: $light-gray;
+	}
+
+	&-black {
+		background-color: $black;
+	}
+
+	&-primary {
+		background-color: $primary-color;
+	}
+
+	&-secondary {
+		background-color: $secondary-color;
+	}
+}

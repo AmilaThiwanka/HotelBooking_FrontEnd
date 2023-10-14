@@ -1,0 +1,15 @@
+/*
+ * Area Model
+ *
+ * @Description: Reset margin of first and last child.
+ */
+
+@mixin area-reset-margin() {
+	> *:first-child {
+		margin-top: 0;
+	}
+
+	> *:last-child {
+		margin-bottom: 0;
+	}
+}

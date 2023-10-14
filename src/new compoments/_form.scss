@@ -1,0 +1,7 @@
+$input-border-color: $medium-gray;
+$input-border-color-light: $light-gray;
+$input-border-radius: $input-radius;
+$input-padding: 9px;
+$input-line-height: 24px;
+$input-border-width: 1px;
+$input-height: (($input-padding*2) + $input-line-height + ($input-border-width*2));

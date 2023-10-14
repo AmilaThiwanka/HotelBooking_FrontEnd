@@ -1,0 +1,26 @@
+/**
+ * 1. SETTINGS
+ *
+ * @description: used with preprocessors and contain font, colors definitions, etc.
+ *
+ */
+
+// 3rd party plugins
+@import 'foundation-settings';
+
+// Layout variables
+@import 'space-model';
+
+// Style variables
+@import 'extra-colors';
+
+// Typography variables
+@import 'font-size';
+@import 'font-weight';
+@import 'line-height';
+
+// Animation variables
+@import 'curves';
+
+// Component variables
+@import 'form';
